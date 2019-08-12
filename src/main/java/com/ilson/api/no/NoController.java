@@ -52,4 +52,9 @@ public class NoController {
         return ResponseEntity.ok("Deleted");
     }
 
+    @GetMapping("/teste")
+    public String teste() {
+    return "teste";
+    }
+
 }
