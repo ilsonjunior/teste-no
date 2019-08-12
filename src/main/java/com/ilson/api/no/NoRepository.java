@@ -8,6 +8,11 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+/**
+ * @author Ilson Junior
+ * @since 12/08/2019
+ */
+
 @Repository
 public interface NoRepository extends JpaRepository<NoEntity, Long>{
 	

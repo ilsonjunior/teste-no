@@ -15,6 +15,11 @@ import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+/**
+ * @author Ilson Junior
+ * @since 12/08/2019
+ */
+
 @Entity
 @Table(name = "tb_no")
 public class NoEntity implements Serializable{
