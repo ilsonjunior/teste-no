@@ -54,7 +54,7 @@ public class NoController {
 
     @GetMapping("/teste")
     public String teste() {
-    return "teste";
+    return "teste legal";
     }
 
 }
