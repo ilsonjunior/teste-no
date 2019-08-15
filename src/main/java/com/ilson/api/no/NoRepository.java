@@ -23,5 +23,4 @@ public interface NoRepository extends JpaRepository<NoEntity, Long>{
 	@Transactional(readOnly=true)
 	NoEntity findByParentIdIsNull();
 
-
 }

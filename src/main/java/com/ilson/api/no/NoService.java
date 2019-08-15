@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.Assert;
 
+import javassist.NotFoundException;
+
 /**
  * @author Ilson Junior
  * @since 12/08/2019
@@ -41,9 +43,8 @@ public class NoService {
 		return noRepository.findByParentId(parentId);
 	}
 
-	public void delete(Long id) {
-		Boolean validDelete = noRepository.findById(id) == null;
-		Assert.isTrue(!validDelete, "nó não encontrado");
+	public void delete(Long id) throws NotFoundException {
+		noRepository.findById(id).orElseThrow(() -> new NotFoundException(id + " não encontrado"));
 		noRepository.deleteById(id);
 	}
 }

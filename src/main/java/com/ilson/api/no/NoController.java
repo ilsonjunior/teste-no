@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javassist.NotFoundException;
+
 /**
  * @author Ilson Junior
  * @since 12/08/2019
@@ -25,29 +27,29 @@ public class NoController {
 	@Autowired
 	private NoService noService;
 
-	@PostMapping("/save")
+	@PostMapping("/node")
     public ResponseEntity<Long> save(@RequestBody NoEntity noEntity) {
 		return ResponseEntity.ok().body(noService.save(noEntity));
 
     }
 
-	@PutMapping("/update")
+	@PutMapping("/node")
     public ResponseEntity<Long> update(@RequestBody NoEntity noEntity) {
         return ResponseEntity.ok().body(noService.save(noEntity));
     }
 
-	@GetMapping("/findTree")
+	@GetMapping("/node")
     public ResponseEntity<NoEntity> findByParentId() {
         return ResponseEntity.ok().body(noService.findTree());
     }
 
-	@GetMapping("/findByParentId/{parentId}")
+	@GetMapping("/node/{parentId}")
     public ResponseEntity<List<NoDTO>> findByParentId(@PathVariable("parentId") Long parentId) {
         return ResponseEntity.ok().body(noService.findByParentId(parentId));
     }
 	
-	@DeleteMapping("/delete/{id}")
-    public ResponseEntity<String> delete(@PathVariable("id") Long id) {
+	@DeleteMapping("/node/{id}")
+    public ResponseEntity<String> delete(@PathVariable("id") Long id) throws NotFoundException {
 		noService.delete(id);
         return ResponseEntity.ok("Deleted");
     }
